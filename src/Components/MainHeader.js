@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link, NavLink } from 'react-router-dom'
 import classes from './MainHeader.module.css';
 
 const MainHeader = () => {
@@ -9,11 +9,11 @@ const MainHeader = () => {
             <ul>
                 <li>
                     {/* <Link to="/about" >About</Link> */}
-                    <NavLink activeClassName={classes.active} to="/about" >About</NavLink>
+                    <NavLink className={(navData)=> navData.isActive ? classes.active : ''} to="/about" >About</NavLink>
                 </li>
                 <li>
                     {/* <Link to="/products" >Products</Link> */}
-                    <NavLink activeClassName={classes.active} to="/products" >Products</NavLink>
+                    <NavLink className={(navData)=> navData.isActive ? classes.active : ''} to="/products" >Products</NavLink>
                 </li>
             </ul>
         </nav>

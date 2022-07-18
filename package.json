@@ -1,5 +1,5 @@
 {
-  "homepage": "https://myusername.github.io/React_module_12.1",
+  "homepage": "https://myusername.github.io/React_module_12.2",
   "name": "react-complete-guide",
   "version": "0.1.0",
   "private": true,
@@ -10,7 +10,8 @@
     "gh-pages": "^4.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^5.3.3",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },

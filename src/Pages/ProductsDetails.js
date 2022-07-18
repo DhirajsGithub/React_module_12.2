@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min'
+import { useParams } from 'react-router-dom'
 // Extracting dynamic value from the url 
 
 const ProductsDetails = () => {

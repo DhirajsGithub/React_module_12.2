@@ -1,31 +1,20 @@
-# What is <mark>React Router</mark> 
-It enables the navigation among views of various components in a React Application, allows changing the browser URL, and keeps the UI in sync with the URL.
-
+# React Route 6
 ## installation: 
-mostly version 5 is used <br>
-`$ npm install react-router-dom@5`
+`$ npm install react-router-dom@latest`
 
-<br>
+## Changes
+* Switch --> Routes
+* BrowserRouter --> BrowserRouter
+* Route --> Self closing and take a component as an element attribute 
+* path --> remains the same
+* redirect --> render={() => <Navigate to="/" />}
+* no nedd of exact in v6, if you want that behaviour of < v6 i.e matching the starting path only  you can have as path="/products/*
+* order of routes doesn't matter if path = "/products/:productId/ and path = /products/edit if the url is .../products/edit the /products/edit will be active if url is .../products/p1sdfj then products/productId will be active
+* Link and NavLink stays the same
+* activeClassName --> className={(navData)=> navData.isActive ? classes.active : ''}
+* nested Route should be wrapped inside Routes as well
+* nested Route and link are relative i.e.  path = /about then in about we want to render user with < v6 we use  /about/new-user but with > v6 we user /new-user in about, only same true for Link
+* Outlet --> we can define all our route(s) at the same place and nested route as well for nested route we need to have a pointer to know where the nested content to be inserted hence <outlet /> is used
+* useHistory () doesn't work --> useNavigator which takes path and an object(defing replace/push : true/false) as argument, or can simply pass (-1/ -2/ 3) to go the previous 3 forward page
+* <Prompt/> component doesn't work in v6 
 
-in index.js wrap App with BrowserRouter component which was imported from react-route-dom
-
-## adding a dynamic route :
-```
-our-domain.com/product-details/:<anyvalue> 
-```
-# useParams() hook 
-In our React app sometimes we want to access the parameters of the current route in this case useParams hook comes into action. The react-router-dom package has useParams hooks that let you access the parameters of the current route.
-
-NOTE: 
-when it comes to matching react router by default looks at the beginng at the start path 
-matching the url means matcing the starting here /products is same as /products/:productId
-hence both page will be render at same time
-<Switch> helps deal with switching a single link at a time, we use exact so that /products only activates when url is .../products
-
-### replace anchor tag <a></a> wiht :
-<Link></Link> to helps to not rerender a page 
-<NavLink></NavLink> same as Link --> creates an anchor tag, catches the click, prevents the browser default additional feature has attribute of activeClassName
-with activeClassName --> we can added classes whenever the link is active
-
-### dealing with redirect to certain page
-if we have route of "/" then we can redirect it with ceratin route using <Redirect to="/component" />

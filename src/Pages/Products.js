@@ -1,7 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Products = () => {
+  // const navigate = useNavigate();
+  // navigate("/welcome", {replace : true})
+  // navigate(1);
   return (
     <section>
       <h1>The Product Page</h1>

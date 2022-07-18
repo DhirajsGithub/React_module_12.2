@@ -1,32 +1,28 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+// import { Redirect, Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import Products from "./Pages/Products.js";
 import About from "./Pages/About.js";
 import MainHeader from "./Components/MainHeader.js";
 import ProductsDetails from "./Pages/ProductsDetails.js";
-
-
+import { Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
   return (
     <div>
-  <MainHeader />
+      <MainHeader />
       <main>
-      <Switch>
-      <Route path="/" exact> 
-      {/* exact is very important as each path is starting with / and we only need / so exact  */}
-        <Redirect to="/welcome" />
-      </Route>
-      <Route path="/about">
-        <About />
-      </Route>
-      <Route path="/products" exact>
-        <Products />
-      </Route>
-      <Route path="/products/:productId">
-        <ProductsDetails />
-      </Route>
-      </Switch>
+        <Routes>
+          <Route path="/" render={() => <Navigate to="/welcome" />} />
+
+          {/* <Route path="/about/*" element={<About/>}/> */}
+          <Route path="/about/*" element={<About />}>
+            <Route path="new-user" element={<h1>Welcome New User</h1>} />
+          </Route>
+
+          <Route path="/products" exact element={<Products />} />
+
+          <Route path="/products/:productId" element={<ProductsDetails />} />
+        </Routes>
       </main>
     </div>
   );
